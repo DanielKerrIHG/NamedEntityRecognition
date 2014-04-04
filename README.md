@@ -8,6 +8,11 @@ A couple articles to get you started. When I get done with my lab for networking
 //Basic info on NER
 http://en.wikipedia.org/wiki/Named-entity_recognition
 
+//General info on Unsupervised Machine Learning:
+http://mlg.eng.cam.ac.uk/zoubin/papers/ul.pdf
+
+
+
 // A few articles on previous implementations
 http://cogprints.org/5025/1/NRC-48727.pdf
 http://acl.ldc.upenn.edu/J/J01/J01-1005.pdf

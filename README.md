@@ -11,7 +11,8 @@ http://en.wikipedia.org/wiki/Named-entity_recognition
 //General info on Unsupervised Machine Learning:
 http://mlg.eng.cam.ac.uk/zoubin/papers/ul.pdf
 
-
+//Conditional random fields appears to be a common choice for machine learned NER:
+http://en.wikipedia.org/wiki/Conditional_random_field
 
 // A few articles on previous implementations
 http://cogprints.org/5025/1/NRC-48727.pdf

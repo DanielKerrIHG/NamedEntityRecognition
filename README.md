@@ -29,3 +29,6 @@ https://homes.cs.washington.edu/~mausam/papers/emnlp11.pdf
 //possible availiable corpii for use in project:
 
 http://www.cs.technion.ac.il/~gabr/resources/data/ne_datasets.html
+
+//Perhaps a further narrowing of focus? A paper about the automatic creation of Gazetteers (usually created by hand):
+http://aclweb.org/anthology//P/P08/P08-1047.pdf

@@ -18,6 +18,7 @@ http://en.wikipedia.org/wiki/Conditional_random_field
 http://cogprints.org/5025/1/NRC-48727.pdf
 http://acl.ldc.upenn.edu/J/J01/J01-1005.pdf
 http://www.dfki.de/~neumann/esslli04/reader/ie-lec3-1.pdf
+http://machinelearningtext.pbworks.com/w/file/fetch/48758502/algthatlearns-Bikel.doc.pdf
 
 //An interesting application: NER on tweets. Something similar might be a good hook
 https://homes.cs.washington.edu/~mausam/papers/emnlp11.pdf

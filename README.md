@@ -11,6 +11,9 @@ http://en.wikipedia.org/wiki/Named-entity_recognition
 //General info on Unsupervised Machine Learning:
 http://mlg.eng.cam.ac.uk/zoubin/papers/ul.pdf
 
+//Good general information about the task of information extraction from a text:
+http://www.nltk.org/book/ch07.html
+
 //Conditional random fields appears to be a common choice for machine learned NER:
 http://en.wikipedia.org/wiki/Conditional_random_field
 

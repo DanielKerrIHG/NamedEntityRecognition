@@ -15,6 +15,9 @@ http://mlg.eng.cam.ac.uk/zoubin/papers/ul.pdf
 # there is source code here: http://www.nltk.org/
 http://www.nltk.org/book/ch07.html
 
+// Lingpipe is an NLP implementation with NER module. It has a book associated with it (much like the nltk)
+http://alias-i.com/lingpipe-book/lingpipe-book-0.5.pdf
+
 //Short powerpoint going over the steps of an semi-supervised algorithm for NER:
 http://www.cs.columbia.edu/~jebara/6772/proj/an2505_project.pdf
 

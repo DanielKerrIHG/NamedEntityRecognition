@@ -13,7 +13,7 @@ http://mlg.eng.cam.ac.uk/zoubin/papers/ul.pdf
 
 # **Start here, this describes the steps for NER. Background information can be found in chapters 3 and 5. ALSO
 # there is source code here: http://www.nltk.org/
-http://www.nltk.org/book/ch07.html
+http://www.nltk.org/book3/ch07.html
 
 // Lingpipe is an NLP implementation with NER module. It has a book associated with it (much like the nltk)
 http://alias-i.com/lingpipe-book/lingpipe-book-0.5.pdf

@@ -18,6 +18,9 @@ http://www.nltk.org/book/ch07.html
 //Short powerpoint going over the steps of an semi-supervised algorithm for NER:
 http://www.cs.columbia.edu/~jebara/6772/proj/an2505_project.pdf
 
+//Textbook with lots of information about language processing
+http://www.cse.iitk.ac.in/users/mohit/Speech-and-Language-Processing.pdf
+
 //Conditional random fields appears to be a common choice for machine learned NER:
 http://en.wikipedia.org/wiki/Conditional_random_field
 

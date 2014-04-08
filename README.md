@@ -15,6 +15,9 @@ http://mlg.eng.cam.ac.uk/zoubin/papers/ul.pdf
 # there is source code here: http://www.nltk.org/
 http://www.nltk.org/book3/ch07.html
 
+// **Here you can download the source files for the Stanford NER (implemented in java):
+http://nlp.stanford.edu/software/CRF-NER.shtml
+
 // Lingpipe is an NLP implementation with NER module. It has a book associated with it (much like the nltk)
 http://alias-i.com/lingpipe-book/lingpipe-book-0.5.pdf
 

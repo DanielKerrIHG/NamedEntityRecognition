@@ -16,7 +16,7 @@ http://mlg.eng.cam.ac.uk/zoubin/papers/ul.pdf
 # there is source code here: http://www.nltk.org/ 
 -- tagger code info: http://www.nltk.org/api/nltk.tag.html#module-nltk.tag.stanford
 
-//**This appears to be the current, better-performing unsupervised methods for classification in NLP:
+//**This appears to be what a lot of the 'current' unsupervised methods for classification in NLP are based on:
 http://www.cs.berkeley.edu/~klein/papers/acl04-factored_induction.pdf
 
 

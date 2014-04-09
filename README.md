@@ -33,6 +33,8 @@ http://www.cse.iitk.ac.in/users/mohit/Speech-and-Language-Processing.pdf
 
 //Conditional random fields appears to be a common choice for machine learned NER:
 http://en.wikipedia.org/wiki/Conditional_random_field
+  //Introduction to Conditional random fields using POS tagging:
+  //http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/
 
 // A few articles on previous implementations
 http://cogprints.org/5025/1/NRC-48727.pdf

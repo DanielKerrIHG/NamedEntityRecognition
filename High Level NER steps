@@ -10,3 +10,4 @@ General Steps for Named Entity Recognition (this is from the nltk site)
   //http://www.computing.dcu.ie/~asrivastava/docs/UnsupervisedPOS.pdf
 -Use the POS tags to break the sentences into Noun Phrase Chunks (supervised version can use n-grams, bayes classifiers, etc.)
 -last then entities are identified from the noun phrases (this is sometimes done with a look up dictionary, but can be done with a classifier as well)
+-Evaluate success

@@ -2,6 +2,7 @@ General Steps for Named Entity Recognition (this is from the nltk site)
 -Tokenize the text into sentences (list of sentences)
 -Tokenize the sentences into words (list of sentences that are a list of words)
 -Tag the words with parts of speach tags (usually uses a machine learning algorithm-- N-grams, brill, etc.)
+  //So-- do we spend time working on semi/un supervised methods for some of the intermediate steps? If so:
   //A couple of papers that talk about semi-supervised algoritms for POS tagging:
   //http://aclweb.org/anthology//P/P10/P10-2038.pdf
   //http://aclweb.org/anthology//P/P11/P11-2009.pdf

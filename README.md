@@ -20,7 +20,7 @@ http://nlp.stanford.edu/software/CRF-NER.shtml
 
 // Lingpipe is an NLP implementation with NER module. It has a book associated with it (much like the nltk)
 http://alias-i.com/lingpipe-book/lingpipe-book-0.5.pdf
-  //Ch. 7 is about tokenized language models...
+  //Ch. 6 is about character lang. models, Ch. 7 is about tokenized language models, ch 9 is about classifiers...
 
 //Short powerpoint going over the steps of an semi-supervised algorithm for NER:
 http://www.cs.columbia.edu/~jebara/6772/proj/an2505_project.pdf

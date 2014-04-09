@@ -34,34 +34,6 @@ http://en.wikipedia.org/wiki/Conditional_random_field
 
 // A few articles on previous implementations
 http://cogprints.org/5025/1/NRC-48727.pdf
-  "2.1.1 Retrieve Pages with Seed 
-  The first step is information retrieval from the Web. A query is created by conjoining a 
-  seed of k manually generated entities (e.g., “Montreal” AND “Boston” AND “Paris” AND 
-  “Mexico City”). In our experience, when k is set to 4 (as suggested by Etzioni et al. [4]) 
-  and the seed entities are common city names, the query typically retrieves Web pages that 
-  contain many names of cities, in addition to the seed names. The basic idea of the 
-  algorithm is to extract these additional city names from each retrieved Web page. 
-  The same strategy can be applied to person names, company names, car brands, and 
-  many other types of entities. Although it is outside of the scope of this paper, we should 
-  mention that we successfully applied this technique to more than 50 named-entity types. 
-  2.1.2 Apply Web Page Wrapper 
-  A Web page wrapper is a rule-based system that identifies the location of specific types of 
-  information within a Web page. For example, a wrapper for identifying the location of 
-  news headers on the Web site radio-canada.ca might contain the rule, “A header is an 
-  HTML node of type <a>, with text length between 10 and 30 characters, in a table of 
-  depth 5 and with at least 3 other nodes in the page that satisfy the same rule.” 
-  The gazetteer generation algorithm proceeds by learning rules that identify the 
-  locations of positive examples. For each page found in 2.1.1, a Web page wrapper is 
-  trained on the k positive examples that are known to appear in the page, but only if they 
-  are strictly contained in an HTML node (e.g., <td> Boston </td>) or surrounded by a 
-  small amount of text inside an HTML node (e.g., <td> Boston hotel </td>). The remaining 
-  HTML nodes in the page are treated as if they were negative examples, but we only 
-  include in the negative set the nodes with the same HTML tags as the positive examples 
-  [11]. For instance, if the k positive nodes are tagged as bold (i.e., “<b>”), then the 
-  negative examples will be restricted to the remaining bold text in the Web page. The Web 
-  page wrapper we used is similar to Cohen and Fan’s [2] wrapper, in terms of the learning 
-  algorithm and the feature vector. "
-
 http://cogprints.org/5859/1/Thesis-David-Nadeau.pdf
 http://acl.ldc.upenn.edu/J/J01/J01-1005.pdf
 http://www.dfki.de/~neumann/esslli04/reader/ie-lec3-1.pdf

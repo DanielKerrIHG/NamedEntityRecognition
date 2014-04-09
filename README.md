@@ -14,7 +14,7 @@ http://mlg.eng.cam.ac.uk/zoubin/papers/ul.pdf
 # **Start here, this describes the steps for NER: http://www.nltk.org/book3/ch07.html
 # Background information can be found in chapters 3 and 5. ALSO
 # there is source code here: http://www.nltk.org/ 
--- tagger code: http://www.nltk.org/api/nltk.tag.html#module-nltk.tag.stanford
+-- tagger code info: http://www.nltk.org/api/nltk.tag.html#module-nltk.tag.stanford
 
 
 // **Here you can download the source files for the Stanford NER (implemented in java):

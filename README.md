@@ -16,6 +16,9 @@ http://mlg.eng.cam.ac.uk/zoubin/papers/ul.pdf
 # there is source code here: http://www.nltk.org/ 
 -- tagger code info: http://www.nltk.org/api/nltk.tag.html#module-nltk.tag.stanford
 
+//**Here is a paper detailing several classification methods
+http://people.cs.umass.edu/~mccallum/papers/crf-tutorial.pdf
+
 
 // **Here you can download the source files for the Stanford NER (implemented in java):
 http://nlp.stanford.edu/software/CRF-NER.shtml

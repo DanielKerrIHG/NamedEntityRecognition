@@ -15,3 +15,7 @@ def importData(filepath):
 				sentences.append(acc)
 				acc = []
 	return sentences
+
+
+train = importData('conll2000/train.txt')
+test = importData('conll2000/test.txt')

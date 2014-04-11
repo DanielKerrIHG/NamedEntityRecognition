@@ -15,8 +15,9 @@ Background information can be found in chapters 3 and 5. ALSO
  source code for NER chunker: https://code.google.com/p/nltk/source/browse/trunk/nltk/nltk/chunk/named_entity.py
 -- tagger code info: http://www.nltk.org/api/nltk.tag.html#module-nltk.tag.stanford
 
-//**Here is a paper detailing several classification methods
-http://people.cs.umass.edu/~mccallum/papers/crf-tutorial.pdf
+//This is using a C# tool, but I thought the description of hidden markov modeling was good:
+
+http://www.codeproject.com/Articles/541428/Sequence-Classifiers-in-Csharp-Part-I-Hidden-Marko
 
 
 

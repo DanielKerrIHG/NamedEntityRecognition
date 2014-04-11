@@ -3,10 +3,6 @@ NamedEntityRecognition
 
 Repo for our AI project
 
-It looks like semi/un supervised NER is relaitvely new, and most implementations use a fully supervised method of training with lots of annotated data. This may be to our bennefit. 
-
-//Basic info on NER
-http://en.wikipedia.org/wiki/Named-entity_recognition
 
 
 **Start here, this describes the steps for NER: http://www.nltk.org/book3/ch07.html
@@ -16,8 +12,10 @@ Background information can be found in chapters 3 and 5. ALSO
 -- tagger code info: http://www.nltk.org/api/nltk.tag.html#module-nltk.tag.stanford
 
 //This is using a C# tool, but I thought the description of hidden markov modeling was good:
-
 http://www.codeproject.com/Articles/541428/Sequence-Classifiers-in-Csharp-Part-I-Hidden-Marko
+
+//Here is an academic paper that talks about a semi-supervised learning algorithm for chunking. (As an aside, on page //six there is a list of features they used for NER, something that I had been trying to find for a while):
+http://stat.rutgers.edu/home/tzhang/papers/acl05-semi.pdf
 
 // Blog from one of the authors of nltk, this entry discussing chunker training:
 http://streamhacker.wordpress.com/2008/12/29/how-to-train-a-nltk-chunker/

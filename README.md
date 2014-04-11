@@ -22,7 +22,7 @@ http://pages.cs.wisc.edu/~jerryzhu/pub/sslchicago09.pdf
 * _(new)_ another powerpoint discussing SSL, from the same source. Seems meatier than the one above:
 http://pages.cs.wisc.edu/~jerryzhu/pub/acl08tutorial.pdf
 
-* A paper on Unsupervised chunking:
+* _(new)_ A paper on Unsupervised chunking:
 http://aclweb.org/anthology//P/P11/P11-1108.pdf
 
 * Blog from one of the authors of nltk, this entry discussing chunker training:

@@ -2,8 +2,8 @@ NamedEntityRecognition
 ======================
 
 Repo for our AI project
-
-
+-----------------------
+<br>
 
 **Start here, this describes the steps for NER: http://www.nltk.org/book3/ch07.html
 Background information can be found in chapters 3 and 5. ALSO

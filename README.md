@@ -38,6 +38,5 @@ http://www.cse.iitk.ac.in/users/mohit/Speech-and-Language-Processing.pdf
 
 
 * possible availiable corpii for use in project:
-
 http://www.cs.technion.ac.il/~gabr/resources/data/ne_datasets.html
 

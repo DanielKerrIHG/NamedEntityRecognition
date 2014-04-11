@@ -19,7 +19,8 @@ Background information can be found in chapters 3 and 5. ALSO
 
 http://www.codeproject.com/Articles/541428/Sequence-Classifiers-in-Csharp-Part-I-Hidden-Marko
 
-
+// Blog from one of the authors of nltk, this entry discussing chunker training:
+http://streamhacker.wordpress.com/2008/12/29/how-to-train-a-nltk-chunker/
 
 // Lingpipe is an NLP implementation with NER module. It has a book associated with it (much like the nltk)
 http://alias-i.com/lingpipe-book/lingpipe-book-0.5.pdf

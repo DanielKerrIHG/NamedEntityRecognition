@@ -20,6 +20,9 @@ http://stat.rutgers.edu/home/tzhang/papers/acl05-semi.pdf
 //Powerpoint discussing semi-supervised algorithms. I'll look for a better source of info:
 http://pages.cs.wisc.edu/~jerryzhu/pub/sslchicago09.pdf
 
+//another powerpoint discussing SSL, from the same source. Seems meatier than the one above:
+http://pages.cs.wisc.edu/~jerryzhu/pub/acl08tutorial.pdf
+
 // Blog from one of the authors of nltk, this entry discussing chunker training:
 http://streamhacker.wordpress.com/2008/12/29/how-to-train-a-nltk-chunker/
 

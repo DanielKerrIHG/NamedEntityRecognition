@@ -13,13 +13,13 @@ Background information can be found in chapters 3 and 5. ALSO
 * This is using a C# tool, but I thought the description of hidden markov modeling was good:
 http://www.codeproject.com/Articles/541428/Sequence-Classifiers-in-Csharp-Part-I-Hidden-Marko
 
-* Here is an academic paper that talks about a semi-supervised learning algorithm for chunking. (As an aside, on page six there is a list of features they used for NER, something that I had been trying to find for a while):
+* _new_ Here is an academic paper that talks about a semi-supervised learning algorithm for chunking. (As an aside, on page six there is a list of features they used for NER, something that I had been trying to find for a while):
 http://stat.rutgers.edu/home/tzhang/papers/acl05-semi.pdf
 
-* Powerpoint discussing semi-supervised algorithms. I'll look for a better source of info:
+* _new_ Powerpoint discussing semi-supervised algorithms. I'll look for a better source of info:
 http://pages.cs.wisc.edu/~jerryzhu/pub/sslchicago09.pdf
 
-* another powerpoint discussing SSL, from the same source. Seems meatier than the one above:
+* _new_ another powerpoint discussing SSL, from the same source. Seems meatier than the one above:
 http://pages.cs.wisc.edu/~jerryzhu/pub/acl08tutorial.pdf
 
 * A paper on Unsupervised chunking:

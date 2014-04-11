@@ -17,6 +17,9 @@ http://www.codeproject.com/Articles/541428/Sequence-Classifiers-in-Csharp-Part-I
 //Here is an academic paper that talks about a semi-supervised learning algorithm for chunking. (As an aside, on page //six there is a list of features they used for NER, something that I had been trying to find for a while):
 http://stat.rutgers.edu/home/tzhang/papers/acl05-semi.pdf
 
+//Powerpoint discussing semi-supervised algorithms. I'll look for a better source of info:
+http://pages.cs.wisc.edu/~jerryzhu/pub/sslchicago09.pdf
+
 // Blog from one of the authors of nltk, this entry discussing chunker training:
 http://streamhacker.wordpress.com/2008/12/29/how-to-train-a-nltk-chunker/
 

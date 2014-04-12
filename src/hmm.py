@@ -50,6 +50,7 @@ class Markov:
         def step_prob(chunk1, chunk2, t):
             return V[t-1][chunk1] * self.transition[chunk1][chunk2] * self.emission[chunk2][sentence[t].pos]
 
+        t = 0
         for t in range(1, len(sentence)):
             V.append(dict())
             newpath = dict()
@@ -60,7 +61,10 @@ class Markov:
                 newpath[chunk2] = path[likelyChunk] + [chunk2]
             path = newpath
 
-        assert t == len(sentence) - 1
+        try:
+            assert t == len(sentence) - 1
+        except:
+            raise Exception(sentence)
         p, likely = max((V[t][chunk], chunk) for chunk in self.chunks)
 
         for i, word in enumerate(sentence):
@@ -72,18 +76,18 @@ def precision(sentences, chunk):
     truePositive, falsePositive = 0, 0
     for sentence in sentences:
         for word in sentence:
-            if chunk == word.predeicted:
+            if chunk == word.predicted:
                 if word.predicted == word.chunk:
                     truePositive += 1
                 else:
                     falsePositive += 1
-    return truePostive / (truePostive + falsePositive)
+    return truePositive / (truePositive + falsePositive)
 
 def recall(sentences, chunk):
-    truePostive, falseNegative = 0, 0
+    truePositive, falseNegative = 0, 0
     for sentence in sentences:
-        or word in sentence:
-            if chunk == word.predeicted:
+        for word in sentence:
+            if chunk == word.predicted:
                 if word.predicted == word.chunk:
                     truePositive += 1
             if chunk == word.chunk:

@@ -9,7 +9,7 @@ class Word:
 # type POS = str
 # type Chunk = String
 
-def importData(filepath):
+def importDetailed(filepath):
 	sentences = []
 	with open(filepath, 'r') as f:
 		acc = []
@@ -21,8 +21,14 @@ def importData(filepath):
 				acc = []
 	return sentences
 
+def importSimple(filepath):
+	sentences = importDetailed(filepath)
+	for sentence in sentences:
+		for word in sentence:
+			word.chunk = word.chunk[0]
+	return sentences
 
-train = importData('conll2000/train.txt')
-test = importData('conll2000/test.txt')
+train = importSimple('conll2000/train.txt')
+test = importSimple('conll2000/test.txt')
 
 

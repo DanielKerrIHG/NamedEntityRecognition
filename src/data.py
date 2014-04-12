@@ -1,3 +1,9 @@
+class Word:
+	def __init__(self, spelling, pos, chunk):
+		self.spelling = spelling
+		self.pos = pos
+		self.chunk = chunk
+
 # type Sentence = [Word]
 # type Word = (str, POS, Chunk)
 # type POS = str
@@ -9,8 +15,7 @@ def importData(filepath):
 		acc = []
 		for line in f.readlines():
 			if len(line.strip()):
-				word, pos, chunk = line.split()
-				acc.append((word, pos, chunk))
+				acc.append(Word(*line.split()))
 			elif acc:
 				sentences.append(acc)
 				acc = []
@@ -19,3 +24,5 @@ def importData(filepath):
 
 train = importData('conll2000/train.txt')
 test = importData('conll2000/test.txt')
+
+

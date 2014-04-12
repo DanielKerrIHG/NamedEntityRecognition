@@ -1,71 +1,67 @@
-from .data import train, test
+class Markov:
+    def __init__(self, initial, transition, emission, poss, chunks):
+        self.initial = initial
+        self.transition = transition
+        self.emission = emission
+        self.poss = poss
+        self.chunks = chunks
 
+    @classmethod
+    def empty(cls, poss, chunks):
+        init = {chunk: 0 for chunk in chunks}
+        sttm = {chunk1: {chunk2: 0 for chunk2 in chunks} for chunk1 in chunks}
+        emm = {chunk: {pos: 0 for pos in poss} for chunk in chunks}
+        return cls(init, sttm, emm, poss, chunks)
 
-allPOS = set(pos for s in train + test for word, pos, chunk in s)
-allChunk = set(chunk for s in train + test for word, pos, chunk in s)
+    def train(self, data):
+        ## First, make a raw count of first words, bigrams and obs-hidden associations
+        for sentence in data:
+            # count the chunk value on the first word of every sentence
+            self.initial[sentence[0].chunk] += 1
+            # count the bigrams of the chunk property
+            for t in range(1, len(sentence)):
+                self.transition[sentence[t-1].chunk][sentence[t].chunk] += 1
+            # count how often a POS appears in conjunction with a chunk
+            for t in range(0, len(sentence)):
+                self.emission[sentence[t].chunk][sentence[t].pos] += 1
+        ## Then, ensure the probabilities all sum to 1 where appropriate
+        # the vector must sum to 1
+        total = sum(self.initial.values())
+        for st in self.initial:
+            self.initial[st] /= total
+        # each row must sum to 1
+        for st1, row in self.transition.items():
+            total = sum(row.values())
+            if total != 0:
+                for st2 in row:
+                    self.transition[st1][st2] /= total
+        # each row must sum to 1
+        for st, row in self.emission.items():
+            total = sum(row.values())
+            if total != 0:
+                for pos in row:
+                    self.emission[st][pos] /= total
+        return self
+    
+    def viterbi(self, sentence):
+        V = [{chunk: self.initial[chunk] * self.emission[chunk][sentence[0].pos] for chunk in self.chunks}]
+        path = {chunk: [chunk] for chunk in self.chunks}
 
+        def step_prob(chunk1, chunk2, t):
+            return V[t-1][chunk1] * self.transition[chunk1][chunk2] * self.emission[chunk2][sentence[t].pos]
 
-def initialStateVector():
-    return {chunk: 0 for chunk in allChunk}
+        for t in range(1, len(sentence)):
+            V.append(dict())
+            newpath = dict()
 
-def stateTransitionMatrix():
-    return {chunk1: {chunk2: 0 for chunk2 in allChunk} for chunk1 in allChunk}
+            for chunk2 in self.chunks:
+                p, likelyChunk = max((step_prob(chunk1, chunk2, t), chunk1) for chunk1 in self.chunks)
+                V[t][chunk2] = p
+                newpath[chunk2] = path[likelyChunk] + [chunk2]
+            path = newpath
 
-def emissionMatrix():
-    return {chunk: {pos: 0 for pos in allPOS} for chunk in allChunk}
-
-
-def count():
-    init, stt, emm = initialStateVector(), stateTransitionMatrix(), emissionMatrix()
-    for s in train:
-        # count the chunk value on the first word of every sentence
-        init[s[0][2]] += 1
-        # count the bigrams of the chunk property
-        for i in range(1, len(s)):
-            stt[s[i-1][2]][s[i][2]] += 1
-        # count how often a POS appears in conjunction with a chunk
-        for i in range(0, len(s)):
-            emm[s[i][2]][s[i][1]] += 1
-    return init, stt, emm
-
-def normalize(init, stt, emm):
-    # the vector must sum to 1
-    total = sum(init.values())
-    for st in init:
-        init[st] /= total
-    # each row must sum to 1
-    for st1, row in stt.items():
-        total = sum(row.values())
-        if total != 0:
-            for st2 in row:
-                stt[st1][st2] /= total
-    # each row must sum to 1
-    for st, row in emm.items():
-        total = sum(row.values())
-        if total != 0:
-            for pos in row:
-                emm[st][pos] /= total
-    return init, stt, emm
-
-def viterbi(sentence, init, stt, emm):
-    V = [{chunk: init[chunk] * emm[chunk][sentence[0][1]] for chunk in allChunk}]
-    path = {chunk: [chunk] for chunk in allChunk}
-
-    def step_prob(chunk1, chunk2, t):
-        return V[t-1][chunk1] * stt[chunk1][chunk2] * emm[chunk2][sentence[t][1]]
-
-    for t in range(1, len(sentence)):
-        V.append(dict())
-        newpath = dict()
-
-        for chunk2 in allChunk:
-            p, likelyChunk = max((step_prob(chunk1, chunk2, t), chunk1) for chunk1 in allChunk)
-            V[t][chunk2] = p
-            newpath[chunk2] = path[likelyChunk] + [chunk2]
-        path = newpath
-
-    assert t == len(sentence) - 1
-    p, likely = max((V[t][chunk], chunk) for chunk in allChunk)
-    return p, path[likely]
+        assert t == len(sentence) - 1
+        p, likely = max((V[t][chunk], chunk) for chunk in self.chunks)
+        return p, path[likely]
 
 

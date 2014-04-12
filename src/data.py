@@ -35,7 +35,5 @@ def importSimple(filepath):
 			word.chunk = word.chunk[0]
 	return sentences
 
-train = importSimple('conll2000/train.txt')
-test = importSimple('conll2000/test.txt')
 
 

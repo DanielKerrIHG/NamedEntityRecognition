@@ -68,4 +68,33 @@ class Markov:
         return sentence
 
 
+def precision(sentences, chunk):
+    truePositive, falsePositive = 0, 0
+    for sentence in sentences:
+        for word in sentence:
+            if chunk == word.predeicted:
+                if word.predicted == word.chunk:
+                    truePositive += 1
+                else:
+                    falsePositive += 1
+    return truePostive / (truePostive + falsePositive)
+
+def recall(sentences, chunk):
+    truePostive, falseNegative = 0, 0
+    for sentence in sentences:
+        or word in sentence:
+            if chunk == word.predeicted:
+                if word.predicted == word.chunk:
+                    truePositive += 1
+            if chunk == word.chunk:
+                if word.predicted != word.chunk:
+                    falseNegative += 1
+    return truePositive / (truePositive + falseNegative)
+
+def f1_measure(sentences, chunk):
+    p = precision(sentences, chunk)
+    r = recall(sentences, chunk)
+    return 2 * (p * r)/(p + r)
+
+
 

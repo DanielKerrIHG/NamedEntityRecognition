@@ -4,6 +4,13 @@ class Word:
 		self.pos = pos
 		self.chunk = chunk
 
+	def __str__(self): return self.__repr__()
+	def __repr__(self):
+		if hasattr(self, 'predicted'):
+			return str((self.spelling, self.pos, self.chunk, self.predicted))
+		else:
+			return str((self.spelling, self.pos, self.chunk))
+
 # type Sentence = [Word]
 # type Word = (str, POS, Chunk)
 # type POS = str

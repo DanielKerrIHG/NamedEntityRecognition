@@ -62,6 +62,10 @@ class Markov:
 
         assert t == len(sentence) - 1
         p, likely = max((V[t][chunk], chunk) for chunk in self.chunks)
-        return p, path[likely]
+
+        for i, word in enumerate(sentence):
+            word.predicted = path[likely][i]
+        return sentence
+
 
 

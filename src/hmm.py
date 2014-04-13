@@ -81,7 +81,11 @@ def precision(sentences, chunk):
                     truePositive += 1
                 else:
                     falsePositive += 1
-    return truePositive / (truePositive + falsePositive)
+    if truePositive == 0 and falsePositive == 0:
+        return 0
+    else:
+        return truePositive / (truePositive + falsePositive)
+
 
 def recall(sentences, chunk):
     truePositive, falseNegative = 0, 0
@@ -93,12 +97,63 @@ def recall(sentences, chunk):
             if chunk == word.chunk:
                 if word.predicted != word.chunk:
                     falseNegative += 1
-    return truePositive / (truePositive + falseNegative)
+    if truePositive == 0 and falseNegative == 0:
+        return 0
+    else:
+        return truePositive / (truePositive + falseNegative)
 
 def f1_measure(sentences, chunk):
     p = precision(sentences, chunk)
     r = recall(sentences, chunk)
-    return 2 * (p * r)/(p + r)
+    if p == 0 and r == 0:
+        return 0
+    else:
+        return 2 * (p * r)/(p + r)
+
+def f1_weighted(predictions, chunks):
+    totalChunks = 0
+    chunkCounts = dict()
+    for chunk in chunks:
+        c = 0
+        for sentence in predictions:
+            for word in sentence:
+                if word.chunk == chunk:
+                    c += 1
+                    totalChunks += 1
+        if c != 0:
+            chunkCounts[chunk] = [c, f1_measure(predictions, chunk)]
+    runningTotal = 0
+    print(chunkCounts)
+    for k, v in chunkCounts.items():
+        runningTotal += ((v[0] / totalChunks) * v[1])
+    return runningTotal / len(chunkCounts)
+
+def f1_micro(predictions, chunks):
+    tp, fn, fp = 0, 0, 0
+    for chunk in chunks:
+        for sentence in predictions:
+            for word in sentence:
+                if chunk == word.predicted:
+                    if word.predicted == word.chunk:
+                        tp += 1
+                    else:
+                        fp += 1
+                if chunk == word.chunk:
+                    if word.predicted != word.chunk:
+                        fn += 1
+    precis = tp / (tp + fp)
+    rec = tp / (tp + fn)
+    return 2 * (precis * rec) / (precis + rec)
+
+def f1_macro(predictions, chunks):
+    runningTotal, chunkCount = 0, 0
+    for chunk in chunks:
+        runningTotal += f1_measure(predictions, chunk)
+        chunkCount += 1
+    return runningTotal / chunkCount
+
+
+
 
 
 

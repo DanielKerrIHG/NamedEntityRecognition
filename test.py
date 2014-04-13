@@ -12,6 +12,23 @@ predictor = Markov.empty(detailedPOS, detailedChunks).train(train)
 predictions = []
 for sentence in test:
 	predictions.append(predictor.viterbi(sentence))
-it = f1_measure(predictions, 'B-NP')
+
+
+print("calculating weighted f1...")
+
+it = f1_weighted(predictions, detailedChunks)
+print(it)
+
+print("calculating micro average f1...")
+
+alsoIt = f1_micro(predictions, detailedChunks)
+print(alsoIt)
+
+print("calculating macro average f1...")
+lastIt = f1_macro(predictions, detailedChunks)
+print(lastIt)
+
+
+
 
 

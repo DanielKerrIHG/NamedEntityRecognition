@@ -8,15 +8,14 @@ print("loaded")
 from src.hmm import *
 from src.prlg import *
 
-predictor = PRLG(detailedPOS, detailedChunks).train(train)
-
-
-exit()
 
 predictor = Markov(detailedPOS, detailedChunks).train(train)
 predictions = []
 for sentence in test:
 	predictions.append(predictor.viterbi(sentence))
+
+predictor2 = PRLG(detailedPOS, detailedChunks).train(train)
+
 
 
 print("calculating weighted f1...")

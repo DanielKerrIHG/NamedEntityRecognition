@@ -12,7 +12,7 @@ class Markov:
         self._trainEmission(data)
         return self
 
-    
+
     def _trainInitial(self, data):
         # count the chunk value on the first word of every sentence
         for sentence in data:
@@ -115,22 +115,18 @@ def f1_measure(sentences, chunk):
         return 2 * (p * r)/(p + r)
 
 def f1_weighted(predictions, chunks):
-    totalChunks = 0
-    chunkCounts = dict()
+    totalF1 = 0
+    totalCount = 0
     for chunk in chunks:
-        c = 0
+        localCount = 0
         for sentence in predictions:
             for word in sentence:
                 if word.chunk == chunk:
-                    c += 1
-                    totalChunks += 1
-        if c != 0:
-            chunkCounts[chunk] = [c, f1_measure(predictions, chunk)]
-    runningTotal = 0
-    print(chunkCounts)
-    for k, v in chunkCounts.items():
-        runningTotal += ((v[0] / totalChunks) * v[1])
-    return runningTotal / len(chunkCounts)
+                    localCount += 1
+        if localCount != 0:
+            totalCount += localCount
+            totalF1 += localCount * f1_measure(predictions, chunk)
+    return totalF1 / totalCount
 
 def f1_micro(predictions, chunks):
     tp, fn, fp = 0, 0, 0

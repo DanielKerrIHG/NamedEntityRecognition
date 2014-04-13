@@ -1,47 +1,51 @@
 class Markov:
-    def __init__(self, initial, transition, emission, poss, chunks):
-        self.initial = initial
-        self.transition = transition
-        self.emission = emission
+    def __init__(self, poss, chunks):
         self.poss = poss
         self.chunks = chunks
-
-    @classmethod
-    def empty(cls, poss, chunks):
-        init = {chunk: 0 for chunk in chunks}
-        sttm = {chunk1: {chunk2: 0 for chunk2 in chunks} for chunk1 in chunks}
-        emm = {chunk: {pos: 0 for pos in poss} for chunk in chunks}
-        return cls(init, sttm, emm, poss, chunks)
+        self.initial = {chunk: 0 for chunk in chunks}
+        self.transition = {chunk1: {chunk2: 0 for chunk2 in chunks} for chunk1 in chunks}
+        self.emission = {chunk: {pos: 0 for pos in poss} for chunk in chunks}
 
     def train(self, data):
-        ## First, make a raw count of first words, bigrams and obs-hidden associations
+        self._trainInitial(data)
+        self._trainTransition(data)
+        self._trainEmission(data)
+        return self
+
+    
+    def _trainInitial(self, data):
+        # count the chunk value on the first word of every sentence
         for sentence in data:
-            # count the chunk value on the first word of every sentence
             self.initial[sentence[0].chunk] += 1
-            # count the bigrams of the chunk property
-            for t in range(1, len(sentence)):
-                self.transition[sentence[t-1].chunk][sentence[t].chunk] += 1
-            # count how often a POS appears in conjunction with a chunk
-            for t in range(0, len(sentence)):
-                self.emission[sentence[t].chunk][sentence[t].pos] += 1
-        ## Then, ensure the probabilities all sum to 1 where appropriate
         # the vector must sum to 1
         total = sum(self.initial.values())
         for st in self.initial:
             self.initial[st] /= total
+
+    def _trainTransition(self, data):
+        # count the bigrams of the chunk property
+        for sentence in data:
+            for t in range(1, len(sentence)):
+                self.transition[sentence[t-1].chunk][sentence[t].chunk] += 1
         # each row must sum to 1
         for st1, row in self.transition.items():
             total = sum(row.values())
             if total != 0:
                 for st2 in row:
                     self.transition[st1][st2] /= total
+
+    def _trainEmission(self, data):
+        for sentence in data:
+            # count how often a POS appears in conjunction with a chunk
+            for t in range(0, len(sentence)):
+                self.emission[sentence[t].chunk][sentence[t].pos] += 1
         # each row must sum to 1
         for st, row in self.emission.items():
             total = sum(row.values())
             if total != 0:
                 for pos in row:
                     self.emission[st][pos] /= total
-        return self
+
     
     def viterbi(self, sentence):
         V = [{chunk: self.initial[chunk] * self.emission[chunk][sentence[0].pos] for chunk in self.chunks}]

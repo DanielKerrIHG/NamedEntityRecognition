@@ -6,9 +6,14 @@ detailedChunks = set(word.chunk for sentence in train + test for word in sentenc
 
 print("loaded")
 from src.hmm import *
+from src.prlg import *
+
+predictor = PRLG(detailedPOS, detailedChunks).train(train)
 
 
-predictor = Markov.empty(detailedPOS, detailedChunks).train(train)
+exit()
+
+predictor = Markov(detailedPOS, detailedChunks).train(train)
 predictions = []
 for sentence in test:
 	predictions.append(predictor.viterbi(sentence))

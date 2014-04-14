@@ -7,7 +7,8 @@ detailedChunks = set(word.chunk for sentence in train + test for word in sentenc
 
 testSlices = []
 trainSlices = []
-sliceData(combined, 10, trainSlices, testSlices)
+numberOfSlices = 10
+sliceData(combined, numberOfSlices, trainSlices, testSlices)
 
 
 print("loaded")
@@ -38,12 +39,13 @@ print("calculating macro average f1...")
 lastIt = f1_macro(predictions, detailedChunks)
 print(lastIt)
 
+"""
 print('========================================')
 print("calculating data slices...")
 weightedAverage = 0
 microAverage = 0
 macroAverage = 0
-for i in range(10):
+for i in range(numberOfSlices):
 	print("calculating using slice " + str(i) + " as testing data:")
 	predictor = Markov(detailedPOS, detailedChunks).train(trainSlices[i])
 	predictions = []
@@ -64,14 +66,14 @@ for i in range(10):
 	print(lastIt)
 	macroAverage += lastIt
 
-weightedAverage = weightedAverage / 10
-microAverage = microAverage / 10
-macroAverage = macroAverage / 10
+weightedAverage = weightedAverage / numberOfSlices
+microAverage = microAverage / numberOfSlices
+macroAverage = macroAverage / numberOfSlices
 
 print("Weighted average: " + str(weightedAverage))
 print("micro average: " + str(microAverage))
 print("macro average: " + str(macroAverage))
-
+"""
 
 
 

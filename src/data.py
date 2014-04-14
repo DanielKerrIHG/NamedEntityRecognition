@@ -36,4 +36,15 @@ def importSimple(filepath):
 	return sentences
 
 
-
+def sliceData(sentences, slices, trainList, testList):
+	count = 0
+	for i in range(slices):
+		trainList.append([])
+		testList.append([])
+	for sentence in sentences:
+		for j in range(slices):
+			if count % slices == j:
+				testList[j].append(sentence)
+			else:
+				trainList[j].append(sentence)
+		count += 1

@@ -1,9 +1,12 @@
 from src.data import *
-train = importDetailed('conll2000/train.txt')
-test = importDetailed('conll2000/test.txt')
-combined = importDetailed('conll2000/combined.txt')
-detailedPOS = set(word.pos for sentence in train + test for word in sentence)
-detailedChunks = set(word.chunk for sentence in train + test for word in sentence)
+print("loading...")
+train = importSimple('conll2000/train.txt')
+test = importSimple('conll2000/test.txt')
+test2 = importSimple('conll2000/test.txt')
+combined = importSimple('conll2000/combined.txt')
+
+allPos = set(word.pos for sentence in train + test for word in sentence)
+allChunks = set(word.chunk for sentence in train + test for word in sentence)
 
 testSlices = []
 trainSlices = []
@@ -11,33 +14,48 @@ numberOfSlices = 10
 sliceData(combined, numberOfSlices, trainSlices, testSlices)
 
 
-print("loaded")
 from src.hmm import *
 from src.prlg import *
 
+print("training...")
+predictor = Markov(allPos, allChunks).train(train)
+predictor2 = PRLG(allPos, allChunks).train(train)
 
-predictor = Markov(detailedPOS, detailedChunks).train(train)
+
+# i = 0
+# it = predictor.predict(test[i])
+# it2 = predictor2.predict(test2[i])
+# assert len(it) == len(it2)
+# for i in range(0, len(it)):
+# 	print(it[i].predicted, it2[i].predicted)
+# exit()
+
+print("predicting...")
 predictions = []
 for sentence in test:
-	predictions.append(predictor.viterbi(sentence))
+	predictions.append(predictor.predict(sentence))
+predictions2 = []
+for sentence in test2:
+	predictions2.append(predictor2.predict_from_back(sentence))
 
-predictor2 = PRLG(detailedPOS, detailedChunks).train(train)
 
-
+# count = 0
+# for i in range(0, len(predictions)):
+# 	if predictions[i].chunk != predictions2[i].chunk:
+# 		count += 1
+# print(len(predictions), count)
 
 print("calculating weighted f1...")
-
-it = f1_weighted(predictions, detailedChunks)
-print(it)
+print(f1_weighted(predictions, allChunks))
+print(f1_weighted(predictions2, allChunks))
 
 print("calculating micro average f1...")
-
-alsoIt = f1_micro(predictions, detailedChunks)
-print(alsoIt)
+print(f1_micro(predictions, allChunks))
+print(f1_micro(predictions2, allChunks))
 
 print("calculating macro average f1...")
-lastIt = f1_macro(predictions, detailedChunks)
-print(lastIt)
+print(f1_macro(predictions, allChunks))
+print(f1_macro(predictions2, allChunks))
 
 """
 print('========================================')
@@ -47,22 +65,22 @@ microAverage = 0
 macroAverage = 0
 for i in range(numberOfSlices):
 	print("calculating using slice " + str(i) + " as testing data:")
-	predictor = Markov(detailedPOS, detailedChunks).train(trainSlices[i])
+	predictor = Markov(allPos, allChunks).train(trainSlices[i])
 	predictions = []
 	for sentence in testSlices[i]:
-		predictions.append(predictor.viterbi(sentence))
+		predictions.append(predictor.predict(sentence))
 	print("calculating weighted f1...")
 
-	it = f1_weighted(predictions, detailedChunks)
+	it = f1_weighted(predictions, allChunks)
 	print(it)
 	weightedAverage += it
 	print("calculating micro average f1...")
 
-	alsoIt = f1_micro(predictions, detailedChunks)
+	alsoIt = f1_micro(predictions, allChunks)
 	print(alsoIt)
 	microAverage += alsoIt
 	print("calculating macro average f1...")
-	lastIt = f1_macro(predictions, detailedChunks)
+	lastIt = f1_macro(predictions, allChunks)
 	print(lastIt)
 	macroAverage += lastIt
 

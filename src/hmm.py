@@ -47,7 +47,7 @@ class Markov:
                     self.emission[st][pos] /= total
 
     
-    def viterbi(self, sentence):
+    def predict(self, sentence):
         V = [{chunk: self.initial[chunk] * self.emission[chunk][sentence[0].pos] for chunk in self.chunks}]
         path = {chunk: [chunk] for chunk in self.chunks}
 

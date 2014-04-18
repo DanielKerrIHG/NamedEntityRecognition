@@ -25,6 +25,9 @@ http://pages.cs.wisc.edu/~jerryzhu/pub/acl08tutorial.pdf
 * **(new)** A paper on Unsupervised chunking:
 http://aclweb.org/anthology//P/P11/P11-1108.pdf
 
+* **(new)** Semi supervised HMM info:
+http://www.shi-zhong.com/papers/FLAIRS04ZhongS.pdf
+
 * Blog from one of the authors of nltk, this entry discussing chunker training:
 http://streamhacker.wordpress.com/2008/12/29/how-to-train-a-nltk-chunker/
 

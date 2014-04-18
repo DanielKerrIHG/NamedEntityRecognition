@@ -17,7 +17,7 @@ def semiTrain(data, allPos, allChunks):
 	unlabledSlices = []
 	c = 0
 	for sentence in data:
-		if c % 4 == 0:
+		if c % 200 == 0:
 			labeledSlices.append(sentence)
 		else:
 			unlabledSlices.append(sentence)
@@ -27,7 +27,7 @@ def semiTrain(data, allPos, allChunks):
 	trainedPredictor = Markov(allPos, allChunks).train(labeledSlices)
 	c = 0
 	changedCount = 1
-	while changedCount > 0 and c < 10:
+	while changedCount > 0:
 		changedCount = 0
 		# Step 3)
 		for sentence in unlabledSlices:
@@ -38,8 +38,8 @@ def semiTrain(data, allPos, allChunks):
 				# Step 4)
 				sentence[i].chunk = tempSentence[i].predicted
 		# Step 5)
-		trainedPredictor = Markov(allPos, allChunks).train(unlabledSlices)
-		print(changedCount)
+		trainedPredictor = Markov(allPos, allChunks).train(labeledSlices + unlabledSlices)
+		
 		c += 1
 	# step 6)
 	return trainedPredictor

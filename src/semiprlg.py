@@ -1,17 +1,4 @@
-"""Steps:
-	1) seperate data into labeledData, unlabledData, testData
-	2) train HMM on labeledData as normal
-		while predictions change:
-			3) predict unlabledData using trained HMM
-			4) set label of unlabledData to be that of prediction
-			5) train HMM using unlabledData
-			
-	6) return converged trainer"""
-
-from .data import *
-from .pllg import *
-
-def semiPLLGTrain(data, allPos, allChunks):
+def semiPRLGTrain(data, allPos, allChunks):
 	# Step 1)
 	labeledSlices = []
 	unlabledSlices = []
@@ -24,7 +11,7 @@ def semiPLLGTrain(data, allPos, allChunks):
 		c += 1
 	
 	# Step 2)
-	trainedPredictor = PLLG(allPos, allChunks).train(labeledSlices)
+	trainedPredictor = PRLG(allPos, allChunks).train(labeledSlices)
 	c = 0
 	changedCount = 1
 	while changedCount > 0:
@@ -38,8 +25,8 @@ def semiPLLGTrain(data, allPos, allChunks):
 				# Step 4)
 				sentence[i].chunk = tempSentence[i].predicted
 		# Step 5)
-		trainedPredictor = PLLG(allPos, allChunks).train(labledSlices + unlabledSlices)
-		print(changedCount)
+		trainedPredictor = PRLG(allPos, allChunks).train(labledSlices + unlabledSlices)
+		
 		c += 1
 	# step 6)
 	return trainedPredictor

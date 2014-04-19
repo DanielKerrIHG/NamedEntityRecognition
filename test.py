@@ -59,39 +59,7 @@ print(f1_weighted(predictions3, allChunks))
 
 
 """
-print('========================================')
-print("calculating data slices...")
-weightedAverage = 0
-microAverage = 0
-macroAverage = 0
-for i in range(numberOfSlices):
-	print("calculating using slice " + str(i) + " as testing data:")
-	predictor = Markov(allPos, allChunks).train(trainSlices[i])
-	predictions = []
-	for sentence in testSlices[i]:
-		predictions.append(predictor.predict(sentence))
-	print("calculating weighted f1...")
 
-	it = f1_weighted(predictions, allChunks)
-	print(it)
-	weightedAverage += it
-	print("calculating micro average f1...")
-
-	alsoIt = f1_micro(predictions, allChunks)
-	print(alsoIt)
-	microAverage += alsoIt
-	print("calculating macro average f1...")
-	lastIt = f1_macro(predictions, allChunks)
-	print(lastIt)
-	macroAverage += lastIt
-
-weightedAverage = weightedAverage / numberOfSlices
-microAverage = microAverage / numberOfSlices
-macroAverage = macroAverage / numberOfSlices
-
-print("Weighted average: " + str(weightedAverage))
-print("micro average: " + str(microAverage))
-print("macro average: " + str(macroAverage))
 """
 
 

@@ -128,6 +128,34 @@ def f1_weighted(predictions, chunks):
             totalF1 += localCount * f1_measure(predictions, chunk)
     return totalF1 / totalCount
 
+def precision_weighted(predictions, chunks):
+    totalPrecision = 0
+    totalCount = 0
+    for chunk in chunks:
+        localCount = 0
+        for sentence in predictions:
+            for word in sentence:
+                if word.chunk == chunk:
+                    localCount += 1
+        if localCount != 0:
+            totalCount += localCount
+        totalPrecision += localCount * precision(predictions, chunk)
+    return totalPrecision / totalCount
+
+def recall_weighted(predictions, chunks):
+    totalRecall = 0
+    totalCount = 0
+    for chunk in chunks:
+        localCount = 0
+        for sentence in predictions:
+            for word in sentence:
+                if word.chunk == chunk:
+                    localCount += 1
+        if localCount != 0:
+            totalCount += localCount
+        totalRecall += localCount * recall(predictions, chunk)
+    return totalRecall / totalCount
+
 def f1_micro(predictions, chunks):
     tp, fn, fp = 0, 0, 0
     for chunk in chunks:

@@ -1,0 +1,288 @@
+>>> from results import *
+loading...
+Slicing and dicing data...
+===================HMM=====================
+calculating data slices...
+calculating using slice 0 as testing data:
+calculating weighted f1...
+Precision:
+0.8942915288466724
+Recall:
+0.9043036621224272
+Weighted F1:
+0.8982876682175142
+----------------------------------------
+calculating using slice 1 as testing data:
+calculating weighted f1...
+Precision:
+0.8996722669179704
+Recall:
+0.9060671388974438
+Weighted F1:
+0.8992348267749392
+----------------------------------------
+calculating using slice 2 as testing data:
+calculating weighted f1...
+Precision:
+0.8941152248459897
+Recall:
+0.9053309900410076
+Weighted F1:
+0.8984802602007235
+----------------------------------------
+calculating using slice 3 as testing data:
+calculating weighted f1...
+Precision:
+0.8931874545579689
+Recall:
+0.9038654038654038
+Weighted F1:
+0.8974797885305608
+----------------------------------------
+calculating using slice 4 as testing data:
+calculating weighted f1...
+Precision:
+0.8957642255458885
+Recall:
+0.9068666743005458
+Weighted F1:
+0.9004175803102301
+----------------------------------------
+calculating using slice 5 as testing data:
+calculating weighted f1...
+Precision:
+0.8877937537352869
+Recall:
+0.8989386427022001
+Weighted F1:
+0.8919199475030198
+----------------------------------------
+calculating using slice 6 as testing data:
+calculating weighted f1...
+Precision:
+0.8882083437838483
+Recall:
+0.8987977121512781
+Weighted F1:
+0.8925603054166421
+----------------------------------------
+calculating using slice 7 as testing data:
+calculating weighted f1...
+Precision:
+0.8903885478584549
+Recall:
+0.9009488101614508
+Weighted F1:
+0.8947791866805191
+----------------------------------------
+calculating using slice 8 as testing data:
+calculating weighted f1...
+Precision:
+0.8932615781559927
+Recall:
+0.9049599507085644
+Weighted F1:
+0.8981078041779862
+----------------------------------------
+calculating using slice 9 as testing data:
+calculating weighted f1...
+Precision:
+0.8933167582947097
+Recall:
+0.9050509005481597
+Weighted F1:
+0.8982215701660593
+----------------------------------------
+Weighted average: 0.8969488937978195
+Precision average: 0.8929999682542782
+recall average: 0.9035129885498481
+===================PRLG=====================
+calculating data slices...
+calculating using slice 0 as testing data:
+calculating weighted f1...
+Precision:
+0.2133546221400712
+Recall:
+0.1279260701874976
+Weighted F1:
+0.0947762330468451
+----------------------------------------
+calculating using slice 1 as testing data:
+calculating weighted f1...
+Precision:
+0.2180826238903246
+Recall:
+0.11337388358484755
+Weighted F1:
+0.074209731408602
+----------------------------------------
+calculating using slice 2 as testing data:
+calculating weighted f1...
+Precision:
+0.2001733206875901
+Recall:
+0.11005662956453817
+Weighted F1:
+0.06921489509645178
+----------------------------------------
+calculating using slice 3 as testing data:
+calculating weighted f1...
+Precision:
+0.20248162263597874
+Recall:
+0.1114961114961115
+Weighted F1:
+0.07036550329462521
+----------------------------------------
+calculating using slice 4 as testing data:
+calculating weighted f1...
+Precision:
+0.21434796610123238
+Recall:
+0.11046223138287721
+Weighted F1:
+0.07094249792300711
+----------------------------------------
+calculating using slice 5 as testing data:
+calculating weighted f1...
+Precision:
+0.19684716596064025
+Recall:
+0.11368918500154943
+Weighted F1:
+0.07065670500063156
+----------------------------------------
+calculating using slice 6 as testing data:
+calculating weighted f1...
+Precision:
+0.20885684724981007
+Recall:
+0.10929535815727015
+Weighted F1:
+0.07014079342698126
+----------------------------------------
+calculating using slice 7 as testing data:
+calculating weighted f1...
+Precision:
+0.19843580212189024
+Recall:
+0.11228862192975744
+Weighted F1:
+0.07152597853531437
+----------------------------------------
+calculating using slice 8 as testing data:
+calculating weighted f1...
+Precision:
+0.19985411000925368
+Recall:
+0.111560382008626
+Weighted F1:
+0.07081767442601125
+----------------------------------------
+calculating using slice 9 as testing data:
+calculating weighted f1...
+Precision:
+0.20477762285080972
+Recall:
+0.11021926389976508
+Weighted F1:
+0.06990102527362342
+----------------------------------------
+Weighted average: 0.0732551037432093
+Precision average: 0.20572117036476006
+recall average: 0.113036773721284
+===================PLLG=====================
+calculating data slices...
+calculating using slice 0 as testing data:
+calculating weighted f1...
+Precision:
+0.9065654755453255
+Recall:
+0.9088097147439569
+Weighted F1:
+0.9058902002283646
+----------------------------------------
+calculating using slice 1 as testing data:
+calculating weighted f1...
+Precision:
+0.9080311646183373
+Recall:
+0.9106867878041269
+Weighted F1:
+0.9075163878175344
+----------------------------------------
+calculating using slice 2 as testing data:
+calculating weighted f1...
+Precision:
+0.9077316821267931
+Recall:
+0.9109158367506346
+Weighted F1:
+0.9074800313656761
+----------------------------------------
+calculating using slice 3 as testing data:
+calculating weighted f1...
+Precision:
+0.9066868195451755
+Recall:
+0.9098329098329099
+Weighted F1:
+0.9065455837106005
+----------------------------------------
+calculating using slice 4 as testing data:
+calculating weighted f1...
+Precision:
+0.911213320229432
+Recall:
+0.9138898431237833
+Weighted F1:
+0.910749872832904
+----------------------------------------
+calculating using slice 5 as testing data:
+calculating weighted f1...
+Precision:
+0.901500847750016
+Recall:
+0.9051363495506662
+Weighted F1:
+0.9011892817299033
+----------------------------------------
+calculating using slice 6 as testing data:
+calculating weighted f1...
+Precision:
+0.904291090649646
+Recall:
+0.9062293295980701
+Weighted F1:
+0.9034272498245381
+----------------------------------------
+calculating using slice 7 as testing data:
+calculating weighted f1...
+Precision:
+0.9054174284395502
+Recall:
+0.9079118524753232
+Weighted F1:
+0.9050474880180577
+----------------------------------------
+calculating using slice 8 as testing data:
+calculating weighted f1...
+Precision:
+0.9080388334357994
+Recall:
+0.9108518176216882
+Weighted F1:
+0.9073477152635673
+----------------------------------------
+calculating using slice 9 as testing data:
+calculating weighted f1...
+Precision:
+0.9061193820037138
+Recall:
+0.9095144870790917
+Weighted F1:
+0.9057986360406055
+----------------------------------------
+Weighted average: 0.906099244683175
+Precision average: 0.906559604434379
+recall average: 0.9093778928580252
